@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 
 const Navbar = () => {
+  const user = JSON.parse(localStorage.getItem("authData"));
   return (
     <nav className="navbar">
       <div className="navbar-container">
@@ -24,7 +25,7 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-actions">
-          <span className="user-name">Hi,User</span>
+          <span className="user-name">{user.name}</span>
 
           <button className="logout-btn">
             <FaSignOutAlt />

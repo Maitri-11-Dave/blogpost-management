@@ -1,1 +1,30 @@
-{}
+{
+  "posts": [
+    {
+      "id": "4b4b",
+      "title": "Title 1",
+      "discriptin": "",
+      "author": "Maitri Dave",
+      "image": "https://avatars.mds.yandex.net/i?id=7ee76b599cd0f41e3af58e01ccfb5f60f070590d-5473912-images-thumbs&n=13",
+      "createAdT": "2026-02-06T10:41:07.837Z"
+    },
+
+    {
+      "id": "4b4b",
+      "title": "Title 1",
+      "discriptin": "",
+      "author": "Maitri Dave",
+      "image": "https://avatars.mds.yandex.net/i?id=7ee76b599cd0f41e3af58e01ccfb5f60f070590d-5473912-images-thumbs&n=13",
+      "createAdT": "2026-02-06T10:41:07.837Z"
+    },
+
+    {
+      "id": "4b4b",
+      "title": "Title 1",
+      "discriptin": "",
+      "author": "Maitri Dave",
+      "image": "https://avatars.mds.yandex.net/i?id=7ee76b599cd0f41e3af58e01ccfb5f60f070590d-5473912-images-thumbs&n=13",
+      "createAdT": "2026-02-06T10:41:07.837Z"
+    }
+  ]
+}
