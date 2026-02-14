@@ -13,12 +13,12 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-links">
-          <NavLink To="/dashboard" className="nav-item">
+          <NavLink to="/dashboard" className="nav-item">
             <FaHome className="nav-icon" />
             Home
           </NavLink>
 
-          <NavLink to="/create-post" className="nav-item">
+          <NavLink to="/CreatePost" className="nav-item">
             <FaPlusSquare className="nav-icon" />
             Create Post
           </NavLink>

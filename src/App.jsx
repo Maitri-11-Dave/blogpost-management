@@ -1,17 +1,18 @@
 import { useState } from "react";
-
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
 import "./App.css";
-
+import Register from "./pages/Register";
+import Login from "./pages/Login";
 import {
   createBrowserRouter,
   Navigate,
   RouterProvider,
 } from "react-router-dom";
-import Login from "./Pages/Login";
-import Register from "./Pages/Register";
-import Dashboard from "./Pages/Dashboard";
+import Dashboard from "./pages/Dashboard";
 import AuthGuard from "./auth/AuthGuard";
 import { ToastContainer } from "react-toastify";
+import CreatePost from "./pages/CreatePost";
 
 const DefaultRoute = () => {
   const loginData = JSON.parse(localStorage.getItem("loginData"));
@@ -29,7 +30,6 @@ function App() {
     },
     {
       path: "/login",
-
       element: (
         <AuthGuard required={false}>
           <Login />
@@ -52,14 +52,31 @@ function App() {
         </AuthGuard>
       ),
     },
+    {
+      path: "/createpost",
+      element: (
+        <AuthGuard>
+          <CreatePost />
+        </AuthGuard>
+      ),
+    },
+    {
+      path: "/edit-post/:id",
+      element: (
+        <AuthGuard>
+          <CreatePost />
+        </AuthGuard>
+      ),
+    },
   ]);
+
   return (
     <>
       <ToastContainer
         position="top-right"
         autoClose={1000}
-        hidenPrograssBar={false}
-        newstOnTop={false}
+        hideProgressBar={false}
+        newestOnTop={false}
         closeOnClick={false}
         rtl={false}
         pauseOnFocusLoss
@@ -67,6 +84,7 @@ function App() {
         pauseOnHover
         theme="light"
       />
+
       <RouterProvider router={route} />
     </>
   );
