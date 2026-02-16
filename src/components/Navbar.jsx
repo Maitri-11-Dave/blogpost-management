@@ -22,6 +22,11 @@ const Navbar = () => {
             <FaPlusSquare className="nav-icon" />
             Create Post
           </NavLink>
+  
+        <NavLink to="/analytics" className="nav-item">
+            <FaPlusSquare className="nav-icon" />
+            Anaytics
+          </NavLink>
         </div>
 
         <div className="navbar-actions">

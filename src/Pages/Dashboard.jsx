@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "../components/Navbar";
 
 import { FaPlus } from "react-icons/fa";
 import { MdDelete, MdEdit } from "react-icons/md";
 import "./Dashboard.css";
 import { useNavigate } from "react-router-dom";
+import Navbar from "../components/Navbar";
 
 const Dashboard = () => {
   const [posts, setPosts] = useState([]);
@@ -27,6 +27,10 @@ const Dashboard = () => {
     navigate(`/edit-post/${postId}`);
   };
 
+  const handleReadMore = (id) => {
+    navigate(`/postdetails/${id}`);
+  };
+
   const handleDelete = async (id) => {
     const confirmDelete = window.confirm(
       "Are you sure you want to delete this post?",
@@ -47,7 +51,7 @@ const Dashboard = () => {
   return (
     <>
       <div className="dashboard-page">
-        <Navbar />
+      <Navbar/>
         <main className="dashboard-main">
           <div className="dashboard-welcome">
             <div className="welcome-text">
@@ -88,7 +92,7 @@ const Dashboard = () => {
                 <div className="post-card" key={post.id}>
                   <div className="post-image-container">
                     <img
-                      src={post.imageUrl}
+                      src={post.imageurl}
                       alt="post"
                       className="post-card-image"
                     />
@@ -112,12 +116,17 @@ const Dashboard = () => {
 
                   <div className="post-card-content">
                     <div className="post-meta">
-                      <span className="post-author">{post.author}</span>
+                      <span className="post-author">{post.auther}</span>
                       <span className="post-date">{post.createdAt}</span>
                     </div>
                     <h3 className="post-card-title">{post.title}</h3>
                     <p className="post-card-description">{post.description}</p>
-                    <button className="read-more-btn">Read More</button>
+                    <button
+                      className="read-more-btn"
+                      onClick={() => handleReadMore(post.id)}
+                    >
+                      Read More
+                    </button>
                   </div>
                 </div>
               ))}

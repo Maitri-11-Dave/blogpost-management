@@ -2,8 +2,8 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
-import Register from "./pages/Register";
-import Login from "./pages/Login";
+import Register from "./Pages/Register";
+import Login from "./Pages/Login";
 import {
   createBrowserRouter,
   Navigate,
@@ -12,7 +12,9 @@ import {
 import Dashboard from "./pages/Dashboard";
 import AuthGuard from "./auth/AuthGuard";
 import { ToastContainer } from "react-toastify";
-import CreatePost from "./pages/CreatePost";
+import CreatePost from "./Pages/CreatePost";
+import PostDetails from "./Pages/PostDetails";
+import Analytics from "./Pages/Analytics";
 
 const DefaultRoute = () => {
   const loginData = JSON.parse(localStorage.getItem("loginData"));
@@ -65,6 +67,22 @@ function App() {
       element: (
         <AuthGuard>
           <CreatePost />
+        </AuthGuard>
+      ),
+    },
+    {
+      path: "/postdetails/:id",
+      element: (
+        <AuthGuard>
+          <PostDetails />
+        </AuthGuard>
+      ),
+    },
+    {
+      path: "/analytics",
+      element: (
+        <AuthGuard>
+          <Analytics />
         </AuthGuard>
       ),
     },
