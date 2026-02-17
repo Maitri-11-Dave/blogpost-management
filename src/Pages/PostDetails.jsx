@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./PostDetails.css";
 import { FaArrowLeft, FaCalendarAlt, FaClock } from "react-icons/fa";
 import { useNavigate, useParams } from "react-router-dom";
-import Navbar from "../components/Navbar";
+import Navbar from "../Components/Navbar";
 
 const PostDetails = () => {
   const [showPostDetails, setShowPostDetails] = useState([]);
@@ -28,7 +28,6 @@ const PostDetails = () => {
     <>
       <div className="post-details-page">
         <Navbar />
-
         <main className="post-details-container">
           <button className="back-btn" onClick={handleBack}>
             <FaArrowLeft />
