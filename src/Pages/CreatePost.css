@@ -7,15 +7,18 @@
     -apple-system,
     sans-serif;
 }
+
 .create-post-container {
   max-width: 800px;
   margin: 2rem auto;
   padding: 0 1.5rem 4rem;
 }
+
 .form-header {
   margin-bottom: 2.5rem;
   text-align: center;
 }
+
 .form-header h1 {
   font-size: 2.5rem;
   font-weight: 800;
@@ -26,10 +29,12 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
 .form-header p {
   color: #64748b;
   font-size: 1.1rem;
 }
+
 .post-form-card {
   background: #ffffff;
   border-radius: 24px;
@@ -39,9 +44,11 @@
     0 8px 10px -6px rgba(0, 0, 0, 0.05);
   border: 1px solid #f1f5f9;
 }
+
 .form-group {
   margin-bottom: 1.75rem;
 }
+
 .form-group label {
   display: block;
   font-size: 0.95rem;
@@ -49,17 +56,20 @@
   color: #334155;
   margin-bottom: 0.75rem;
 }
+
 .input-wrapper {
   position: relative;
   display: flex;
   align-items: center;
 }
+
 .input-icon {
   position: absolute;
   left: 1rem;
   color: #94a3b8;
   font-size: 1.2rem;
 }
+
 .form-control {
   width: 100%;
   padding: 0.875rem 1rem 0.875rem 2.75rem;
@@ -70,17 +80,20 @@
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   background-color: #fdfdfd;
 }
+
 .form-control:focus {
   outline: none;
   border-color: #6366f1;
   box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
   background-color: #fff;
 }
+
 textarea.form-control {
   min-height: 150px;
   resize: vertical;
   padding-left: 1rem;
 }
+
 .image-source-tabs {
   display: flex;
   gap: 1rem;
@@ -89,6 +102,7 @@ textarea.form-control {
   padding: 0.4rem;
   border-radius: 12px;
 }
+
 .tab-btn {
   flex: 1;
   padding: 0.6rem;
@@ -101,11 +115,13 @@ textarea.form-control {
   background: transparent;
   color: #64748b;
 }
+
 .tab-btn.active {
   background: #fff;
   color: #6366f1;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
+
 .image-upload-area {
   border: 2px dashed #e2e8f0;
   border-radius: 16px;
@@ -115,19 +131,23 @@ textarea.form-control {
   transition: all 0.2s;
   background: #f8fafc;
 }
+
 .image-upload-area:hover {
   border-color: #6366f1;
-  background-color: #f5f3f1;
+  background: #f5f3ff;
 }
+
 .upload-icon {
   font-size: 2.5rem;
   color: #4b5563;
   margin-bottom: 1rem;
 }
+
 .image-upload-area p {
   color: #000000;
   font-weight: 500;
 }
+
 .image-preview-container {
   margin-top: 1.5rem;
   position: relative;
@@ -135,18 +155,20 @@ textarea.form-control {
   overflow: hidden;
   aspect-ratio: 16/9;
 }
+
 .image-preview {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+
 .remove-image-btn {
   position: absolute;
   top: 12px;
   right: 12px;
   background: #ef4444;
   color: white;
-  border: none;
+  border: mone;
   width: 32px;
   height: 32px;
   border-radius: 50%;
@@ -157,16 +179,19 @@ textarea.form-control {
   transition: all 0.2s ease;
   z-index: 10;
   box-shadow:
-    0 4px 6px -1px rgba(0, 0, 0, 0.01),
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
+
 .remove-image-btn:hover {
   background: #dc2626;
   transform: scale(1.1);
 }
+
 .remove-image-btn svg {
   font-size: 14px;
 }
+
 .submit-btn {
   width: 100%;
   padding: 1rem;
@@ -183,27 +208,32 @@ textarea.form-control {
   justify-content: center;
   gap: 10px;
 }
-.submit-btn :hover {
+
+.submit-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px -8px rgba(99, 102, 241, 0.1);
+  box-shadow: 0 10px 20px -5px rgba(99, 102, 241, 0.4);
 }
+
 .submit-btn:active {
   transform: translateY(0);
 }
+
 .form-actions-row {
   display: flex;
   gap: 1rem;
   margin-top: 2rem;
 }
+
 .form-actions-row .submit-btn {
   margin-top: 0;
-  flex: 1;
+  flex: 2;
 }
+
 .cancel-btn {
   flex: 1;
   padding: 1rem;
-  background: #fbfafc;
-  color: #475509;
+  background: #f8fafc;
+  color: #475569;
   border: 2px solid #e2e8f0;
   border-radius: 12px;
   font-size: 1rem;
@@ -214,33 +244,33 @@ textarea.form-control {
   align-items: center;
   justify-content: center;
 }
+
 .cancel-btn:hover {
   background: #f1f5f9;
   color: #1e293b;
   border-color: #cbd5e1;
 }
+
 .cancel-btn:active {
   transform: translateY(1px);
 }
+
 @media (max-width: 480px) {
   .form-actions-row {
     flex-direction: column;
   }
 }
+
 @media (max-width: 640px) {
   .create-post-container {
     margin: 1rem auto;
   }
+
   .post-form-card {
     padding: 1.5rem;
   }
+
   .form-header h1 {
     font-size: 1.8rem;
   }
-}
-.error {
-  color: red;
-  font-size: 13px;
-  margin-top: 4px;
-  display: block;
 }

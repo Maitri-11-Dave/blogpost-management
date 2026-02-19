@@ -10,7 +10,7 @@ import {
 
 import "./CreatePost.css";
 import { useNavigate, useParams } from "react-router-dom";
-import Navbar from "../Components/Navbar";
+import Navbar from "../components/Navbar";
 
 function CreatePost() {
   const autherName = JSON.parse(localStorage.getItem("authData"));
@@ -140,6 +140,19 @@ function CreatePost() {
     setError(newError);
     return Object.keys(newError).length === 0;
   };
+
+  const handleClear = () => {
+    setData({
+      title: "",
+      description: "",
+      auther: auther?.name || "",
+      imageurl: "",
+      imageType: "",
+    });
+    setImagePreview(null);
+    setError({});
+  };
+
   return (
     <div className="create-post-page">
       <Navbar />
@@ -278,7 +291,11 @@ function CreatePost() {
                 {id ? "Update Post" : "Publish Post"}
               </button>
 
-              <button type="button" className="cancel-btn">
+              <button
+                type="button"
+                className="cancel-btn"
+                onClick={handleClear}
+              >
                 Clear Form
               </button>
             </div>

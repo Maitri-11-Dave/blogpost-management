@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./PostDetails.css";
 import { FaArrowLeft, FaCalendarAlt, FaClock } from "react-icons/fa";
 import { useNavigate, useParams } from "react-router-dom";
-import Navbar from "../Components/Navbar";
+import Navbar from "../components/Navbar";
 
 const PostDetails = () => {
   const [showPostDetails, setShowPostDetails] = useState([]);

@@ -47,11 +47,13 @@ const Dashboard = () => {
       console.log("Delete error:", error);
     }
   };
-
+  const createPostNavigate = () => {
+    navigate("/createpost");
+  };
   return (
     <>
       <div className="dashboard-page">
-      <Navbar/>
+        <Navbar />
         <main className="dashboard-main">
           <div className="dashboard-welcome">
             <div className="welcome-text">
@@ -81,7 +83,10 @@ const Dashboard = () => {
           <section className="posts-section">
             <div className="section-header">
               <h2 className="section-title">React Feed</h2>
-              <button className="create-shortcut-btn">
+              <button
+                className="create-shortcut-btn"
+                onClick={createPostNavigate}
+              >
                 <FaPlus />
                 New Post
               </button>
