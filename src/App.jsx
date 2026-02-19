@@ -9,12 +9,13 @@ import {
   Navigate,
   RouterProvider,
 } from "react-router-dom";
-import Dashboard from "./pages/Dashboard";
+import Dashboard from "./Pages/Dashboard";
 import AuthGuard from "./auth/AuthGuard";
 import { ToastContainer } from "react-toastify";
 import CreatePost from "./Pages/CreatePost";
 import PostDetails from "./Pages/PostDetails";
 import Analytics from "./Pages/Analytics";
+import Favorites from "./Pages/Favorites";
 
 const DefaultRoute = () => {
   const loginData = JSON.parse(localStorage.getItem("loginData"));
@@ -83,6 +84,14 @@ function App() {
       element: (
         <AuthGuard>
           <Analytics />
+        </AuthGuard>
+      ),
+    },
+    {
+      path: "/favorites",
+      element: (
+        <AuthGuard>
+          <Favorites />
         </AuthGuard>
       ),
     },

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 
-import { FaPlus } from "react-icons/fa";
+import { FaPlus, FaStar } from "react-icons/fa";
 import { MdDelete, MdEdit } from "react-icons/md";
 import "./Dashboard.css";
 import { useNavigate } from "react-router-dom";
-import Navbar from "../components/Navbar";
+import Navbar from "../Components/Navbar";
 
 const Dashboard = () => {
   const [posts, setPosts] = useState([]);
@@ -47,13 +47,15 @@ const Dashboard = () => {
       console.log("Delete error:", error);
     }
   };
-  const createPostNavigate = () => {
-    navigate("/createpost");
-  };
+
+  const createPostNavigate=()=>{
+    navigate("/createpost")
+  }
+
   return (
     <>
       <div className="dashboard-page">
-        <Navbar />
+<Navbar/>
         <main className="dashboard-main">
           <div className="dashboard-welcome">
             <div className="welcome-text">
@@ -83,10 +85,7 @@ const Dashboard = () => {
           <section className="posts-section">
             <div className="section-header">
               <h2 className="section-title">React Feed</h2>
-              <button
-                className="create-shortcut-btn"
-                onClick={createPostNavigate}
-              >
+              <button className="create-shortcut-btn" onClick={createPostNavigate}>
                 <FaPlus />
                 New Post
               </button>
@@ -101,6 +100,9 @@ const Dashboard = () => {
                       alt="post"
                       className="post-card-image"
                     />
+                    <button className={`favorite-btn`}>
+                      <FaStar size={22} color="#ffffff"/>
+                    </button>
                     <div className="post-actions">
                       <button
                         className="action-btn edit-btn"
