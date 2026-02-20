@@ -5,10 +5,12 @@ import { MdDelete, MdEdit } from "react-icons/md";
 import "./Dashboard.css";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../Components/Navbar";
+import { toast } from "react-toastify";
 
 const Dashboard = () => {
   const [posts, setPosts] = useState([]);
   const navigate = useNavigate();
+  const [favorites, setFavorites] = useState([]);
 
   const fetchData = async () => {
     try {
@@ -21,7 +23,24 @@ const Dashboard = () => {
   };
   useEffect(() => {
     fetchData();
+    const savedFavorites = JSON.parse(
+      localStorage.getItem("favorites") || "[]",
+    );
+    setFavorites(savedFavorites);
   }, []);
+
+  const toggleFavorite = (e, postId) => {
+    let newFavorites;
+    if (favorites.includes(postId)) {
+      newFavorites = favorites.filter((id) => id !== postId);
+      toast.info("Removed from favorites");
+    } else {
+      newFavorites = [...favorites, postId];
+      toast.success("Added to favorites!");
+    }
+    setFavorites(newFavorites);
+    localStorage.setItem("favorites", JSON.stringify(newFavorites));
+  };
 
   const handleEdit = (postId) => {
     navigate(`/edit-post/${postId}`);
@@ -48,14 +67,14 @@ const Dashboard = () => {
     }
   };
 
-  const createPostNavigate=()=>{
-    navigate("/createpost")
-  }
+  const createPostNavigate = () => {
+    navigate("/createpost");
+  };
 
   return (
     <>
       <div className="dashboard-page">
-<Navbar/>
+        <Navbar />
         <main className="dashboard-main">
           <div className="dashboard-welcome">
             <div className="welcome-text">
@@ -85,7 +104,10 @@ const Dashboard = () => {
           <section className="posts-section">
             <div className="section-header">
               <h2 className="section-title">React Feed</h2>
-              <button className="create-shortcut-btn" onClick={createPostNavigate}>
+              <button
+                className="create-shortcut-btn"
+                onClick={createPostNavigate}
+              >
                 <FaPlus />
                 New Post
               </button>
@@ -100,8 +122,11 @@ const Dashboard = () => {
                       alt="post"
                       className="post-card-image"
                     />
-                    <button className={`favorite-btn`}>
-                      <FaStar size={22} color="#ffffff"/>
+                    <button
+                      className={`favorite-btn ${favorites.includes(post.id) ? "active" : ""}`}
+                      onClick={(e) => toggleFavorite(e, post.id)}
+                    >
+                      <FaStar size={22} color="#ffffff" />
                     </button>
                     <div className="post-actions">
                       <button
@@ -130,7 +155,11 @@ const Dashboard = () => {
                     <p className="post-card-description">{post.description}</p>
                     <button
                       className="read-more-btn"
-                      onClick={() => handleReadMore(post.id)}
+                      onClick={() =>
+                        navigate(`/postdetails/${post.id}`, {
+                          state: { from: "/dashboard" },
+                        })
+                      }
                     >
                       Read More
                     </button>
